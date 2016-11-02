@@ -1,0 +1,11 @@
+# get url
+from urllib.request import urlopen  #Read page from urllib
+from bs4 import BeautifulSoup  
+import numpy as np
+import pandas as pd
+page = urlopen('http://shakespeare.mit.edu/').read()
+#print("page ", page[468:]) # slice
+soup = BeautifulSoup(page,"lxml")
+x = soup.find('body')
+abstract = x.getText()
+print(abstract)
